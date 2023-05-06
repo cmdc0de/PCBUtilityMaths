@@ -15,7 +15,7 @@ int main(int argc, const char **argv) {
     float_t StartingX = 0; //center pt of circle
     float_t StartingY = 0;
 
-    CLI::App app{ fmt::format("{} version {}", myproject::cmake::project_name, myproject::cmake::project_version) };
+    CLI::App app{ fmt::format("{} version {}", PCBUtilityMaths::cmake::project_name, PCBUtilityMaths::cmake::project_version) };
 
     uint32_t NumItems = 0;
     app.add_option("-n, --NumberOfItems", NumItems, "Number of items to place in the circle");
@@ -38,7 +38,7 @@ int main(int argc, const char **argv) {
     if(has_diameter->count()) RadiusOfCircle = DiameterOfCircle/2.0f;
 
     if (show_version) {
-      fmt::print("{}\n", myproject::cmake::project_version);
+      fmt::print("{}\n", PCBUtilityMaths::cmake::project_version);
       return EXIT_SUCCESS;
     }
     std::printf("Number of Items = %u\r\nRadius of Circle = %f\r\n", NumItems, RadiusOfCircle);

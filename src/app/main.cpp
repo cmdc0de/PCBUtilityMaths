@@ -12,8 +12,8 @@
 
 int main(int argc, const char **argv) {
   try {
-    float StartingX = 0; //center pt of circle
-    float StartingY = 0;
+    float_t StartingX = 0; //center pt of circle
+    float_t StartingY = 0;
 
     CLI::App app{ fmt::format("{} version {}", myproject::cmake::project_name, myproject::cmake::project_version) };
 
@@ -25,6 +25,8 @@ int main(int argc, const char **argv) {
     auto *has_diameter = app.add_option("-d,--DiameterOfCircle",DiameterOfCircle, "Diameter of circle");
     has_diameter->excludes(has_radius);
     has_radius->excludes(has_diameter);
+    app.add_option("-x,--startx", StartingX, "X offset");
+    app.add_option("-y,--starty", StartingY, "Y offset");
 
 
     bool show_version = false;

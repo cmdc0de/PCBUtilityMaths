@@ -2,8 +2,8 @@ add_executable(pcbmathutil main.cpp)
 
 target_link_libraries(
   pcbmathutil
-  PRIVATE myproject::myproject_options
-          myproject::myproject_warnings)
+  PRIVATE PCBUtilityMaths::PCBUtilityMaths_options
+          PCBUtilityMaths::PCBUtilityMaths_warnings)
 
 target_link_system_libraries(
   pcbmathutil

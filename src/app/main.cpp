@@ -9,11 +9,12 @@
 
 //static const int NUM_ITEMS = 12;
 //static const float_t RADIUS_OF_CIRCLE = 25.4f/2.0f;
-static float StartingX = 0; //center pt of circle
-static float StartingY = 0;
 
 int main(int argc, const char **argv) {
   try {
+    float StartingX = 0; //center pt of circle
+    float StartingY = 0;
+
     CLI::App app{ fmt::format("{} version {}", myproject::cmake::project_name, myproject::cmake::project_version) };
 
     uint32_t NumItems = 0;

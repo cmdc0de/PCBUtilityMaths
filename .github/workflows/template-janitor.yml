@@ -10,7 +10,7 @@ on:
     tags:
     branches:
       - main
-      - develop
+      # - develop
 
 env:
   TEMPLATES_PATH: ".github/template"
@@ -141,7 +141,7 @@ jobs:
         with:
           add: -A
           author_name: Template Janitor
-          author_email: template.janitor@example.com
+          author_email: cmdc0dez@gmail.com
           message: 'Cleanup template and initialize repository'
           pathspec_error_handling: exitImmediately
         env:
@@ -239,7 +239,7 @@ jobs:
         with:
           add: -A
           author_name: Template Janitor
-          author_email: template.janitor@example.com
+          author_email: cmdc0dez@gmail.com
           message: 'Change Template Name'
           pathspec_error_handling: exitImmediately
         env:

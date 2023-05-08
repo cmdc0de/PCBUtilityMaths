@@ -1,12 +1,12 @@
-add_executable(intro main.cpp)
+add_executable(PCBUtilityMaths main.cpp)
 
 target_link_libraries(
-  intro
+        PCBUtilityMaths
   PRIVATE PCBUtilityMaths::PCBUtilityMaths_options
           PCBUtilityMaths::PCBUtilityMaths_warnings)
 
 target_link_system_libraries(
-  intro
+        PCBUtilityMaths
   PRIVATE
           CLI11::CLI11
           fmt::fmt

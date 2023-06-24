@@ -28,6 +28,8 @@ int main(int argc, const char **argv) {
     app.add_option("-x,--startx", StartingX, "X offset");
     app.add_option("-y,--starty", StartingY, "Y offset");
 
+    float startingAngle = 0.0f;
+    app.add_option("-a, --angleOffset",startingAngle, "angle offset");
 
     bool show_version = false;
     app.add_flag("--version", show_version, "Show version information");
@@ -36,18 +38,23 @@ int main(int argc, const char **argv) {
     CLI11_PARSE(app, argc, argv);
 
     if(has_diameter->count()) RadiusOfCircle = DiameterOfCircle/2.0f;
+    float startingAngleRad = static_cast<float>(startingAngle*(3.14/180));
 
     if (show_version) {
       fmt::print("{}\n", PCBUtilityMaths::cmake::project_version);
       return EXIT_SUCCESS;
     }
-    std::printf("Number of Items = %u\r\nRadius of Circle = %f\r\n", NumItems, RadiusOfCircle);
+    std::printf("Number of Items = %u\r\nRadius of Circle = %f starting Angle Offset = %f (%f)\r\n", NumItems, RadiusOfCircle, startingAngle, startingAngleRad);
 
 
     double px,py;
     for(uint32_t i=0;i<NumItems;++i) {
-        px = StartingX + RadiusOfCircle * std::cos(2*3.14*i/NumItems);
-        py = StartingY + RadiusOfCircle * std::sin(2*3.14*i/NumItems);
+        float angle = static_cast<float>(2*3.14*i/NumItems);
+        angle+=startingAngleRad;
+        std::printf("degrees: %4.4f", (angle*180/3.14));
+
+        px = StartingX + RadiusOfCircle * std::cos(angle);//std::cos((2*3.14*i/NumItems)+startingAngleRad);
+        py = StartingY + RadiusOfCircle * std::sin(angle); //std::sin((2*3.14*i/NumItems)+startingAngleRad);
         std::printf("#%u: px: %0.2f  py: %0.2f\r\n", i, px, py);
         //std::cout << "#" << i << ":  " << px << "     " << py << std::endl;
     }
